@@ -1,25 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import SolverList from './components/solver';
+import Board from './components/board';
+import HeaderBar from './components/header'
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderBar />
+      <br/> 
+      <Route path="/games/:id" component={Board} />
     </div>
+    <div class ="loader-wrapper">
+      <span class = "loader"><span class = "loader-inner"></span></span>
+    </div>
+
+    </Router>
   );
 }
 
