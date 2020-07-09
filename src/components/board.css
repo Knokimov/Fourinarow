@@ -1,0 +1,23 @@
+img {
+    height: 100px
+}
+
+input {
+    height: 100px;
+}
+
+#spin {
+    color: black;
+}
+
+.sr-only {
+    color: black;
+}
+
+.spinner-border {
+    color: black;
+}
+
+.sweet-loading {
+ color: greenyellow;   
+}
