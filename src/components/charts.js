@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 // Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 import './chart.css';
+import axios from 'axios';
 
 function getRandomArray(numItems) {
     // Create random array of objects
@@ -15,6 +16,7 @@ function getRandomArray(numItems) {
     }
     return data;
   }
+  
   
   function getRandomDateArray(numItems) {
     // Create random array of objects (with date)
@@ -61,7 +63,11 @@ function getRandomArray(numItems) {
   export default class BarChart extends React.Component {
     constructor(props) {
       super(props);
+      this.state = {
+        temporaryData: ""
+      }
       this.canvasRef = React.createRef();
+      
     }
   
     componentDidUpdate() {
@@ -70,11 +76,16 @@ function getRandomArray(numItems) {
       this.myChart.update();
     }
   
-    componentDidMount() {
+    async componentDidMount() {
+      // await axios.get('http://localhost:5000/games/')
+      // .then(res => this.setState({temporaryData: res.data}))
+      //     .catch((error) => {
+      //         console.log(error);
+      //     })
       this.myChart = new Chart(this.canvasRef.current, {
         type: 'bar',
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
           scales: {
             yAxes: [
               {
@@ -99,7 +110,15 @@ function getRandomArray(numItems) {
   
     render() {
       return (
+        <div>
           <canvas ref={this.canvasRef} />
+          {/* <footer> {this.state.temporaryData.length} </footer> */}
+          <BarChart
+              data={this.state.data[2].data}
+              title={this.state.data[2].title}
+              color="#B08EA2"
+            />
+          </div>
       );
     }
   }

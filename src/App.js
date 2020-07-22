@@ -15,9 +15,9 @@ function App() {
       <br/> 
       <Route path="/games/:id" component={Board} />
     </div>
-    <div class ="loader-wrapper">
+    {/* <div class ="loader-wrapper">
       <span class = "loader"><span class = "loader-inner"></span></span>
-    </div>
+    </div> */}
 
     </Router>
   );

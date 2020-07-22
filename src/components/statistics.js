@@ -58,7 +58,34 @@ function getData() {
   return data;
 }
 
+const theData = [{
+  title: "Visits",
+  data: [
+    { label: 'A', value: 74 },
+    { label: 'B', value: 70 },
+    { label: 'C', value: 42 },
+    { label: 'D', value: 89 },
+    { label: 'E', value: 84 }
+  ]
+},
+{title: "Visits",
+data: [
+  { label: 'A', value: 74 },
+  { label: 'B', value: 70 },
+  { label: 'C', value: 42 },
+  { label: 'D', value: 89 },
+  { label: 'E', value: 84 }
+]},
+{title: "Visits",
+  data: [
+    { label: 'A', value: 74 },
+    { label: 'B', value: 70 },
+    { label: 'C', value: 100 },
+    { label: 'D', value: 89 },
+    { label: 'E', value: 84 }
+  ]}
 
+]
 
 export default class Statistics extends Component {
   constructor(props) {
@@ -74,7 +101,7 @@ export default class Statistics extends Component {
       whatever: 'Not it mane',
       ai: '',
       player: '',
-      data: getData()
+      data: theData
     }
   }
 
@@ -95,16 +122,14 @@ export default class Statistics extends Component {
     return (
 
         <section>
-                    <Link to="" className="nav-link" > Statistics</Link>
+                    <Link to="" className="nav-link" > Statistics </Link>
             {/* <BarChart
-              // data={this.state.data[2].data}
-              // title={this.state.data[2].title}
+              data={this.state.data[2].data}
+              title={this.state.data[2].title}
               color="#B08EA2"
             /> */}
                 </section>
                
-               
-
     )
   }
 }

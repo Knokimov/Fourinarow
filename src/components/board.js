@@ -252,7 +252,8 @@ addMovetoMovesmade(x) {
       movesmade: this.state.movesmade + event,
       refutation: this.state.refutation,
       ongoing: "YES",
-      positionScore: this.state.positionScore
+      positionScore: this.state.positionScore,
+      timestampsPerMove: []
     }
 
     this.setState({movesmade: this.state.movesmade + event});
@@ -358,13 +359,13 @@ addMovetoMovesmade(x) {
 <img src = {WhiteC} className = "6" onClick={this.onSubmit2} onMouseOver = {this.showCircle} onMouseLeave={this.hideCircle} alt= "circle" id= "square40"/>
 <img src = {WhiteC} className = "7" onClick={this.onSubmit2} onMouseOver = {this.showCircle} onMouseLeave={this.hideCircle} alt= "circle" id= "square41"/>
 
-<div className="sweet-loading">
+{/* <div className="sweet-loading">
         <ClipLoader
           size={150}
           color={"#123abc"}
           // color={"#FF5733"}
         />
-        </div>
+        </div> */}
 </div>
 </tbody>
 </table>
