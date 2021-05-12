@@ -1,8 +1,14 @@
-img {
-    height: 100px
+.board {
+    font-size: 0;
+    display: inline-block;
+    border-collapse: collapse;
+    border: none;
+    margin: none;
+    padding: none; 
+    border-image-width: 0;
 }
 
-input {
+img {
     height: 100px;
 }
 
@@ -21,3 +27,24 @@ input {
 .sweet-loading {
  color: greenyellow;   
 }
+
+#gameStatus {
+    color: rgba(53,58,64,255);
+    font-size: 3rem;
+    margin: 0;
+    line-height: 50px;
+    /* animation: example1 10s cubic-bezier(.4,0,.2,1) forwards; */
+  }
+  
+  @keyframes example1 {
+    38% {
+      opacity: 1;
+    }
+    62% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }

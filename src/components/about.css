@@ -1,0 +1,22 @@
+.example1 h3 {
+  color: rgba(53,58,64,255);
+  font-size: 3rem;
+  margin: 0;
+  line-height: 50px;
+  animation: example1 5s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes example1 {
+  38% {
+    opacity: 1;
+  }
+  62% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    color:white;
+  }
+}
+

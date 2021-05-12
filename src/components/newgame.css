@@ -2,14 +2,46 @@ h1 {
     color: #353a40;
 }
 
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+    width:50%;
+}
+
+
 #Blue {
     opacity: 0.5;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
 }
 
 #Black {
     opacity: 0.5;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
+}
+
+#BlackText {
+    opacity: 0.5;
+    color: rgba(53,58,64,255);
+}
+
+#BlueText {
+    opacity: 0.5;
+    color: rgba(22,139,255,255);
+}
+
+#close {
+    position: relative;
+    top: 20px;
+    color: rgba(22,139,255,255);
 }

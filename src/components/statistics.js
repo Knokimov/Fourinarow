@@ -1,135 +1,48 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-import Modal from 'react-awesome-modal';  
-import BarChart from './charts';
-import './chart.css';
+import BarChart from './barChart';
+import DoughnutChart from './doughnutChart';
+import LineChart from './lineChart';
+import dataTransformation from './dataTransformation';
 
-function getRandomArray(numItems) {
-  // Create random array of objects
-  let names = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let data = [];
-  for(var i = 0; i < numItems; i++) {
-    data.push({
-      label: names[i],
-      value: Math.round(20 + 80 * Math.random())
-    });
-  }
-  return data;
-}
-
-function getRandomDateArray(numItems) {
-  // Create random array of objects (with date)
-  let data = [];
-  let baseTime = new Date('2018-05-01T00:00:00').getTime();
-  let dayMs = 24 * 60 * 60 * 1000;
-  for(var i = 0; i < numItems; i++) {
-    data.push({
-      time: new Date(baseTime + i * dayMs),
-      value: Math.round(20 + 80 * Math.random())
-    });
-  }
-  return data;
-}
-
-function getData() {
-  let data = [];
-
-  data.push({
-    title: 'Visits',
-    data: getRandomDateArray(150)
-  });
-
-  data.push({
-    title: 'Categories',
-    data: getRandomArray(20)
-  });
-
-  data.push({
-    title: 'Categories',
-    data: getRandomArray(10)
-  });
-
-  data.push({
-    title: 'Data 4',
-    data: getRandomArray(6)
-  });
-
-  return data;
-}
-
-const theData = [{
-  title: "Visits",
-  data: [
-    { label: 'A', value: 74 },
-    { label: 'B', value: 70 },
-    { label: 'C', value: 42 },
-    { label: 'D', value: 89 },
-    { label: 'E', value: 84 }
-  ]
-},
-{title: "Visits",
-data: [
-  { label: 'A', value: 74 },
-  { label: 'B', value: 70 },
-  { label: 'C', value: 42 },
-  { label: 'D', value: 89 },
-  { label: 'E', value: 84 }
-]},
-{title: "Visits",
-  data: [
-    { label: 'A', value: 74 },
-    { label: 'B', value: 70 },
-    { label: 'C', value: 100 },
-    { label: 'D', value: 89 },
-    { label: 'E', value: 84 }
-  ]}
-
-]
 
 export default class Statistics extends Component {
-  constructor(props) {
-    
-    super(props);
-    this.onChangeInput = this.onChangeInput.bind(this);
-    this.onChangeResponse = this.onChangeResponse.bind(this);
-
-    this.state = {
-      movesmade: '',
-      refutation: '',
-      ongoing: '1',
-      whatever: 'Not it mane',
-      ai: '',
-      player: '',
-      data: theData
+    constructor(props) {
+        super(props);
+        this.state = {
+            barChart1: [],
+            doughnutChart1: [],
+            doughnutChart2: [],
+            lineChart1: [],
+            lineLabels: new dataTransformation().lineChartLabels(),
+            finishedGames: ""
+        }
     }
-  }
 
-  onChangeInput(e) {
-    this.setState({
-      input: e.target.value
-    })
-  }
+    async componentDidMount() {
+        const url = 'http://localhost:5000/games/';
+        const response = await fetch(url);
+        const data = await response.json();
+        const last50 = data.slice(-50);
+        this.setState({
+            barChart1: new dataTransformation().barChart(data),
+            doughnutChart1: new dataTransformation().doughnutChart(last50),
+            doughnutChart2: new dataTransformation().doughnutChart2(last50),
+            lineChart1: new dataTransformation().lineChart(last50),
+            finishedGames: new dataTransformation().finsishedGames(data),
+            movesmade: data.movesmade,
+            ai: data.ai,
+            player: data.player});
+    }
 
-  onChangeResponse(e) {
-    this.setState({
-      response: e.target.value
-    })
-  }
-
-
-  render() {
-    return (
-
-        <section>
-                    <Link to="" className="nav-link" > Statistics </Link>
-            {/* <BarChart
-              data={this.state.data[2].data}
-              title={this.state.data[2].title}
-              color="#B08EA2"
-            /> */}
-                </section>
-               
-    )
-  }
+    render() {
+         return (
+            <section>
+                <h1> Amount of finished games: {this.state.finishedGames} </h1>
+                <BarChart title = "First moves" chartData = {this.state.barChart1} ></BarChart>
+                <DoughnutChart title = "Players color preference" chartData = {this.state.doughnutChart1} ></DoughnutChart>
+                <DoughnutChart title = "Winning percentage by color" chartData = {this.state.doughnutChart2} ></DoughnutChart>
+                <LineChart title = "Ai valuation" lineLabels = {this.state.lineLabels} chartData = {this.state.lineChart1} ></LineChart>
+            </section>  
+        )
+    }
 }
