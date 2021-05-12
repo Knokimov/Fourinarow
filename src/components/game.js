@@ -5,8 +5,6 @@ export default class Game {
         this.board = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]; 
         this.fillBoard(movesMade);
         this.winner = this.checkWinner(this.board);
-        console.log(`This is the length: ${this.movesMade.length}`);
-        console.log(`This is the moves: ${this.movesMade}`);
     }
     
     addToMovesMade(move){

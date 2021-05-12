@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Modal from 'react-awesome-modal';
-import BlackC from "../BlackCircleWhiteBack.jpg";
-import BlueC from "../BlueCircleWhiteBack.jpg";
+import BlackCircle from "./pictures/BlackCircleWhiteBack.jpg";
+import BlueCircle from "./pictures/BlueCircleWhiteBack.jpg";
 import { Link } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
 import "./newGame.css";
@@ -87,11 +87,11 @@ export default class Newgame extends Component {
 
                     <div class="row">
                         <div class="column">
-                            <img src = {BlackC} className = "Black" alt= "1" id= "Black" onClick={this.onSubmit} onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease} />
+                            <img src = {BlackCircle} className = "Black" alt= "1" id= "Black" onClick={this.onSubmit} onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease} />
                                 <h3 class="moveOrder" className = "Black" id="BlackText" onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease}> Move first</h3>
                             </div>
                         <div class="column">
-                            <img src = {BlueC} className = "Blue" alt= "2" id= "Blue" onClick={this.onSubmit} onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease}/>
+                            <img src = {BlueCircle} className = "Blue" alt= "2" id= "Blue" onClick={this.onSubmit} onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease}/>
                             <h3 class="moveOrder" className = "Blue" id="BlueText" onMouseOver={this.opasityIncrease} onMouseLeave={this.opasityDecrease}> Move second</h3>
                                 </div>
                         </div>

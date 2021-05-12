@@ -5,13 +5,10 @@ export default class DoughnutChart extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            data1: {
+            data: {
               }
         } 
     }
-
-// Blue rgba(22,139,255,255)
-// Black rgba(53,58,64,255)
 
     render() {
        return (

@@ -37,7 +37,7 @@ export default class Statistics extends Component {
     render() {
          return (
             <section>
-                <h1> Amount of finished games: {this.state.finishedGames} </h1>
+                <h1> Finished games: {this.state.finishedGames} </h1>
                 <BarChart title = "First moves" chartData = {this.state.barChart1} ></BarChart>
                 <DoughnutChart title = "Players color preference" chartData = {this.state.doughnutChart1} ></DoughnutChart>
                 <DoughnutChart title = "Winning percentage by color" chartData = {this.state.doughnutChart2} ></DoughnutChart>

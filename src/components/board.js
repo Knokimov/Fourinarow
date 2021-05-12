@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import "./board.css";
 import axios from 'axios';
-import BlackCircleGrayBack from "../BlackCircleGrayBack.jpg";
-import WhiteC from "../WhiteCircleGreyBack.jpg";
-import BlueCircleGrayBack from "../BlueCircleGrayBack.jpg"; 
-import WhiteBack from "../WhiteBack.jpg";
-import Blue from "../BlueCircleWhiteBack.jpg"; 
-import Black from "../BlackCircleWhiteBack.jpg"; 
+import BlackCircleGrayBack from "./pictures/BlackCircleGrayBack.jpg";
+import WhiteCircle from "./pictures/WhiteCircleGreyBack.jpg";
+import BlueCircleGrayBack from "./pictures/BlueCircleGrayBack.jpg"; 
+import WhiteBack from "./pictures/WhiteBack.jpg";
+import Blue from "./pictures/BlueCircleWhiteBack.jpg"; 
+import Black from "./pictures/BlackCircleWhiteBack.jpg"; 
 import Game from "./game";
 
 export default class Board extends Component {
@@ -116,7 +116,7 @@ export default class Board extends Component {
             return <tr> {game.map((square)=>{
                 columnIndex ++;
                 if (square == 0) {
-                    return <td> <img src = {WhiteC} className = {columnIndex} onMouseLeave = {this.hideHeader} onMouseOver = {this.displayColumnHeader} onClick={this.onSubmit}/> </td>
+                    return <td> <img src = {WhiteCircle} className = {columnIndex} onMouseLeave = {this.hideHeader} onMouseOver = {this.displayColumnHeader} onClick={this.onSubmit}/> </td>
                 }
                 else if (square == 1) {
                     return <td> <img src = {BlackCircleGrayBack} className = {columnIndex} onMouseLeave = {this.hideHeader} onMouseOver = {this.displayColumnHeader} onClick={this.onSubmit}/> </td>

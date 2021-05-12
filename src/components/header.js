@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Newgame from './newGame';
-import Statistics from './statistics';
 import './header.css';
 
 export default class Headerbar extends Component {

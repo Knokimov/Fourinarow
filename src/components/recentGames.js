@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import "./recentGames.css";
 
 export default class RecentGames extends Component {
